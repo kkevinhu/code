@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Player
+{
+public:
+    Player();
+    Player(int num, string name) {
+        if (!setPlayerNum(n))
+            cout<<"out of range"<<endl;
+        if (!setPlayerName(name))
+            cout<<"your name if illegal"<<endl;
+    }
+    int getPlayerNum() {
+        return number;
+    }
+    string getPlayerName() {
+        return name;
+    }
+    bool setPlayerNum(int n) {
+        if (n>0 && n<5)
+            return true;
+        else 
+            return false;
+    }
+    bool setPlayerName(string n) {
+        int flag=0, len=n.length();
+        for (int i=0; i<len; i++) {
+            if (!(n[i]>='A' && n[i]<='Z') || (n[i]>='a' && n[i]<='z')) {
+                flag=0;
+                break;
+            }
+        }
+        if (len<20 && flag==1)
+            return true;
+        else   
+            return false;
+    }
+private:
+    int number;
+    string name;
+};
